@@ -63,3 +63,41 @@
         card.style.setProperty('--mouse-y', `${y}px`);
       });
     });
+
+    // Hack para Inversão de Cores (Light Mode)
+    const themeToggle = document.getElementById('themeToggle');
+    if(themeToggle) {
+      themeToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.documentElement.classList.toggle('light-mode');
+      });
+    }
+
+    // Toggle de Preços (Mensal/Anual)
+    const billingToggle = document.getElementById('billingToggle');
+    if (billingToggle) {
+      const prices = document.querySelectorAll('.pc-price-value');
+      const periods = document.querySelectorAll('.pc-price-period');
+      const monthlyLabel = document.querySelector('.pt-label.monthly');
+      const annualLabel = document.querySelector('.pt-label.annual');
+
+      billingToggle.addEventListener('click', () => {
+        billingToggle.classList.toggle('annual-active');
+        const isAnnual = billingToggle.classList.contains('annual-active');
+        
+        monthlyLabel.classList.toggle('active', !isAnnual);
+        annualLabel.classList.toggle('active', isAnnual);
+
+        prices.forEach(price => {
+          if (isAnnual) {
+            price.textContent = price.getAttribute('data-annual');
+          } else {
+            price.textContent = price.getAttribute('data-monthly');
+          }
+        });
+        
+        periods.forEach(period => {
+          period.textContent = isAnnual ? '/anual' : '/mês';
+        });
+      });
+    }

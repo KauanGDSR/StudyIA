@@ -1,3 +1,572 @@
+﻿# Código Completo do Projeto StudyIA
+
+## 1. index.html
+``html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>StudyIA — Onde a IA Encontra a Tradição</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <!-- Bebas Neue for the massive Barbershop style titles, Inter for body, Playfair Display for elegant italics -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital@1&display=swap" rel="stylesheet"/>
+  
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Navegação Minimalista -->
+  <nav class="nav">
+    <a href="#" class="nav-logo">Study<span>IA</span></a>
+    <ul class="nav-links">
+      <li><a href="#funcionalidades">Funcionalidades</a></li>
+      <li><a href="#modos">Modos de Foco</a></li>
+      <li><a href="#planos">Planos</a></li>
+      <li><a href="#depoimentos">Depoimentos</a></li>
+    </ul>
+    <div style="display:flex; align-items:center; gap:20px;">
+      <button class="theme-toggle" aria-label="Inverter Cores" onclick="document.documentElement.classList.toggle('light-mode')">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+      </button>
+      <a href="#planos" class="nav-cta">Começar Grátis</a>
+    </div>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- Seção Hero Dividida -->
+  <section class="hero">
+    
+    <!-- Vídeo de Fundo Dinâmico com Overlay Gradiente -->
+    <video class="bg-video" autoplay loop muted playsinline>
+      <source src="video de fundo.mp4" type="video/mp4">
+    </video>
+    <div class="bg-overlay"></div>
+    <div class="noise"></div>
+
+    <div class="hero-content">
+      
+      <div class="hero-tag">
+        <span class="hero-tag-line"></span>
+        <span class="hero-tag-text">Fundado para Alta Performance -- IA Generativa</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span>Seu Tutor</span>
+        <span>Particular</span>
+        <span class="stroke-text" data-text="Com Memória">Com Memória</span>
+        <span>De IA</span>
+      </h1>
+
+      <p class="hero-desc">
+        O StudyIA aprende quem você é, lembra do que você errou e monta um plano de estudos que cresce com você. Nossa inteligência artificial combina técnicas consagradas pelo tempo com tecnologia de ponta para esculpir sua aprovação.
+      </p>
+
+      <div class="hero-actions">
+        <!-- Botão Secundário Sofisticado -->
+        <a href="#funcionalidades" class="btn-secondary">
+          <span>Explorar Recursos</span>
+          <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+        
+        <!-- Botão Primário Premium -->
+        <a href="#planos" class="btn-primary">
+          <span>Iniciar Agora</span>
+          <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Segunda Dobra: Funcionalidades -->
+  <section id="funcionalidades" class="features">
+    
+    <div class="features-header">
+      <div class="features-tag reveal">INTELIGÊNCIA COGNITIVA</div>
+      <h2 class="features-title reveal delay-1">
+        A ARTE DE APRENDER.<br>
+        ELEVADA PELA <span class="serif-italic">INTELIGÊNCIA.</span>
+      </h2>
+      <p class="features-desc reveal delay-2">
+        A infraestrutura do StudyIA é desenhada para emular o cérebro humano. 
+        Mapeamos seus erros, construímos um perfil cognitivo exclusivo e arquitetamos 
+        uma jornada de alto desempenho para a sua aprovação.
+      </p>
+    </div>
+
+    <div class="features-grid">
+      <!-- Card 1 -->
+      <div class="feature-card reveal delay-1">
+        <div>
+          <div class="fc-header">
+            <span class="fc-tag">FIG. 01</span>
+            <svg class="fc-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z"/>
+              <path d="M12 16v-4"/>
+              <path d="M12 8h.01"/>
+            </svg>
+          </div>
+          <h3 class="fc-title">MEMÓRIA DE<br>LONGO PRAZO</h3>
+          <p class="fc-desc">Nosso algoritmo de revisão espaçada adapta-se dinamicamente à sua curva de esquecimento, solidificando o conhecimento.</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="feature-card reveal delay-2">
+        <div>
+          <div class="fc-header">
+            <span class="fc-tag">FIG. 02</span>
+            <svg class="fc-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+          </div>
+          <h3 class="fc-title">CRONOGRAMA<br>FLEXÍVEL</h3>
+          <p class="fc-desc">Organização autônoma de rotinas que recalcula seu caminho instantaneamente se você precisar faltar um dia.</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="feature-card reveal delay-3">
+        <div>
+          <div class="fc-header">
+            <span class="fc-tag">FIG. 03</span>
+            <svg class="fc-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+              <line x1="12" y1="19" x2="12" y2="23"/>
+              <line x1="8" y1="23" x2="16" y2="23"/>
+            </svg>
+          </div>
+          <h3 class="fc-title">CORREÇÃO<br>MULTIMODAL</h3>
+          <p class="fc-desc">Tire dúvidas enviando fotos da sua lista de exercícios ou enviando áudios diretamente para o tutor de IA.</p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="feature-card reveal delay-4">
+        <div>
+          <div class="fc-header">
+            <span class="fc-tag">FIG. 04</span>
+            <svg class="fc-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <h3 class="fc-title">TRÍADE<br>DE FOCO</h3>
+          <p class="fc-desc">Três modos exclusivos de preparação: Modo Prova, Modo Concurso e Modo Apresentação para roteiros e oratória.</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Terceira Dobra: Modos de Foco -->
+  <section id="modos" class="modes">
+    
+    <div class="modes-header">
+      <div class="modes-tag reveal">ADAPTABILIDADE MÁXIMA</div>
+      <h2 class="modes-title reveal delay-1">
+        ESCOLHA O SEU<br>
+        <span class="serif-italic">CAMPO DE BATALHA.</span>
+      </h2>
+      <p class="modes-desc reveal delay-2">
+        O StudyIA calibra a intensidade, o formato e o espaçamento do ensino 
+        com base no seu objetivo final. Três algoritmos distintos para três vitórias diferentes.
+      </p>
+    </div>
+
+    <div class="modes-grid">
+      
+      <!-- Flip Card 1: Modo Prova -->
+      <div class="flip-card reveal delay-1">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <svg class="fc-front-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+            <h3 class="fc-front-title">MODO PROVA</h3>
+            <span class="fc-front-tag">Curto Prazo</span>
+            <p class="fc-front-desc">Sprint focado em absorção máxima. Ideal para a semana que antecede as avaliações da faculdade ou escola.</p>
+            <div class="fc-front-btn">Ver Estratégia 
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+          <div class="flip-card-back">
+            <div class="fc-back-header">
+              <span class="fc-back-title">Bastidores do Algoritmo</span>
+              <svg class="fc-front-icon" style="margin:0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <ul class="fc-back-list">
+              <li>
+                <svg class="fc-back-list-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="fc-back-list-text">Frequência de revisão ultra-intensificada para retenção rápida.</span>
+              </li>
+              <li>
+                <svg class="fc-back-list-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="fc-back-list-text">Geração automática de simulados diários focados nos seus erros.</span>
+              </li>
+              <li>
+                <svg class="fc-back-list-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="fc-back-list-text">Resumos condensados: corte do que não cai, foco total no que cai.</span>
+              </li>
+            </ul>
+            <div class="fc-back-spec">
+              <span class="fc-spec-label">Fadiga Mental Calculada</span>
+              <span class="fc-spec-value">ALTA TENSÃO</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flip Card 2: Modo Apresentação -->
+      <div class="flip-card reveal delay-2">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <svg class="fc-front-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+              <line x1="12" y1="19" x2="12" y2="23"/>
+            </svg>
+            <h3 class="fc-front-title">MODO APRESENTAÇÃO</h3>
+            <span class="fc-front-tag">Oratória & Roteiro</span>
+            <p class="fc-front-desc">Domine a fala. O foco aqui não é papel e caneta, é a construção do raciocínio em tempo real para bancas.</p>
+            <div class="fc-front-btn">Ver Estratégia 
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+          <div class="flip-card-back">
+            <div class="fc-back-header">
+              <span class="fc-back-title">Bastidores do Algoritmo</span>
+              <svg class="fc-front-icon" style="margin:0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/></svg>
+            </div>
+            <ul class="fc-back-list">
+              <li>
+                <svg class="fc-back-list-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="fc-back-list-text">Análise de áudio em tempo real para detectar vícios de linguagem.</span>
+              </li>
+              <li>
+                <svg class="fc-back-list-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="fc-back-list-text">Estruturação de Flashcards baseados em gatilhos mentais.</span>
+              </li>
+              <li>
+                <svg class="fc-back-list-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="fc-back-list-text">Cronômetro dinâmico para treino de pitch e TCCs.</span>
+              </li>
+            </ul>
+            <div class="fc-back-spec">
+              <span class="fc-spec-label">Fadiga Mental Calculada</span>
+              <span class="fc-spec-value">MODERADA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flip Card 3: Modo Concurso -->
+      <div class="flip-card reveal delay-3">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <svg class="fc-front-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+            <h3 class="fc-front-title">MODO CONCURSO</h3>
+            <span class="fc-front-tag">Longo Prazo</span>
+            <p class="fc-front-desc">A maratona definitiva. Um ecossistema de aprendizado desenhado para editais monstruosos e meses de estudo.</p>
+            <div class="fc-front-btn">Ver Estratégia 
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+          <div class="flip-card-back">
+            <div class="fc-back-header">
+              <span class="fc-back-title">Bastidores do Algoritmo</span>
+              <svg class="fc-front-icon" style="margin:0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/></svg>
+            </div>
+            <ul class="fc-back-list">
+              <li>
+                <svg class="fc-back-list-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="fc-back-list-text">Ciclo de estudos contínuo e flexível, sem dias fixos que geram culpa.</span>
+              </li>
+              <li>
+                <svg class="fc-back-list-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="fc-back-list-text">Curva de esquecimento de longo prazo (algoritmo SuperMemo).</span>
+              </li>
+              <li>
+                <svg class="fc-back-list-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="fc-back-list-text">Geração de bateria de questões baseada nas bancas (CESPE, FGV).</span>
+              </li>
+            </ul>
+            <div class="fc-back-spec">
+              <span class="fc-spec-label">Fadiga Mental Calculada</span>
+              <span class="fc-spec-value">RESISTÊNCIA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Quarta Dobra: Planos -->
+  <section id="planos" class="pricing">
+    
+    <div class="pricing-header">
+      <div class="pricing-tag reveal">INVESTIMENTO</div>
+      <h2 class="pricing-title reveal delay-1">
+        SUA APROVAÇÃO<br>
+        <span class="serif-italic">NÃO TEM PREÇO.</span>
+      </h2>
+      <p class="pricing-desc reveal delay-2">
+        Escolha o arsenal ideal para o seu momento de estudo. Sem taxas escondidas, sem surpresas. Cancele quando for aprovado.
+      </p>
+    </div>
+
+    <div class="pricing-grid">
+      
+      <!-- Passe Tático -->
+      <div class="pricing-card reveal delay-1">
+        <h3 class="pc-name">PASSE TÁTICO</h3>
+        <p class="pc-desc">Sobrevivência universitária e escolar. O essencial para manter as notas altas.</p>
+        <div class="pc-price">R$ 29<span>/mês</span></div>
+        <ul class="pc-features">
+          <li><svg class="pc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Modo Prova Ilimitado</li>
+          <li><svg class="pc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 50 Resumos por mês</li>
+          <li><svg class="pc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Histórico de erros de 30 dias</li>
+        </ul>
+        <a href="#" class="pc-btn">Assinar Tático</a>
+      </div>
+
+      <!-- Passe Estratégico (Premium) -->
+      <div class="pricing-card premium reveal delay-2">
+        <div class="pc-badge">Recomendado</div>
+        <h3 class="pc-name">PASSE ESTRATÉGICO</h3>
+        <p class="pc-desc">Alta performance para Concursos e Vestibulares. Liberdade total nos 3 Modos de Foco.</p>
+        <div class="pc-price">R$ 59<span>/mês</span></div>
+        <ul class="pc-features">
+          <li><svg class="pc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Todos os 3 Modos de Foco</li>
+          <li><svg class="pc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Resumos & Simulados Infinitos</li>
+          <li><svg class="pc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Análise de Áudio (Oratória)</li>
+          <li><svg class="pc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Revisão Espaçada Ativa</li>
+        </ul>
+        <a href="#" class="pc-btn">Assinar Estratégico</a>
+      </div>
+
+      <!-- Passe Vitalício -->
+      <div class="pricing-card reveal delay-3">
+        <h3 class="pc-name">PASSE VITALÍCIO</h3>
+        <p class="pc-desc">Pagamento único. Acesso irrestrito ao sistema de inteligência artificial para sempre.</p>
+        <div class="pc-price">R$ 499<span>/único</span></div>
+        <ul class="pc-features">
+          <li><svg class="pc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Acesso Estratégico Perpétuo</li>
+          <li><svg class="pc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Mentoria Humana Bimestral</li>
+          <li><svg class="pc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Acesso antecipado a Betas</li>
+        </ul>
+        <a href="#" class="pc-btn">Obter Vitalício</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Quinta Dobra: Depoimentos (Human Academy Style) -->
+  <section id="depoimentos" class="testimonials">
+    <div class="t-header-container reveal">
+      <span class="t-tag-pill">Depoimentos</span>
+      <h2 class="t-main-title mt-5">O que os alunos estão dizendo</h2>
+    </div>
+    
+    <div class="t-carousel-wrapper reveal delay-1">
+      <div class="t-carousel" id="testimonialCarousel">
+        
+        <!-- Grupo 1 -->
+        <!-- Card 1 -->
+        <div class="t-card">
+          <div class="t-card-top">
+            <p class="t-quote-text">"A revisão espaçada mapeou perfeitamente meus pontos fracos. No dia da prova, parecia que a inteligência artificial já tinha me treinado para exatamente aquelas questões."</p>
+          </div>
+          <div class="t-card-bottom">
+            <div class="t-avatar" style="background: #CBA052;"></div>
+            <div class="t-author-info">
+              <span class="t-author-name">Marina Silveira</span>
+              <span class="t-author-handle">@marinasilveira</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="t-card">
+          <div class="t-card-top">
+            <p class="t-quote-text">"Estudar para auditor é solitário e exaustivo. O algoritmo ajustou meu cronograma automaticamente quando eu estava fadigado. Isso me salvou do burnout."</p>
+          </div>
+          <div class="t-card-bottom">
+            <div class="t-avatar" style="background: #555;"></div>
+            <div class="t-author-info">
+              <span class="t-author-name">Carlos Mendes</span>
+              <span class="t-author-handle">@carlosmendes</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="t-card">
+          <div class="t-card-top">
+            <p class="t-quote-text">"Sabe quando você encontra uma IA que não te dá apenas respostas, mas desbloqueia uma nova forma de pensar e organizar os estudos? É isso."</p>
+          </div>
+          <div class="t-card-bottom">
+            <div class="t-avatar" style="background: #333;"></div>
+            <div class="t-author-info">
+              <span class="t-author-name">Lucas Furtado</span>
+              <span class="t-author-handle">@lucas_furtado</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="t-card">
+          <div class="t-card-top">
+            <p class="t-quote-text">"Abrindo caminhos para entender na prática como criar e estudar usando IA. Desmitifica os processos, abre o jogo, sem enrolação."</p>
+          </div>
+          <div class="t-card-bottom">
+            <div class="t-avatar" style="background: #777;"></div>
+            <div class="t-author-info">
+              <span class="t-author-name">Fernanda Lima</span>
+              <span class="t-author-handle">@fer.lima</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grupo 2 (Duplicata para scroll contínuo) -->
+        <!-- Card 1 -->
+        <div class="t-card">
+          <div class="t-card-top">
+            <p class="t-quote-text">"A revisão espaçada mapeou perfeitamente meus pontos fracos. No dia da prova, parecia que a inteligência artificial já tinha me treinado para exatamente aquelas questões."</p>
+          </div>
+          <div class="t-card-bottom">
+            <div class="t-avatar" style="background: #CBA052;"></div>
+            <div class="t-author-info">
+              <span class="t-author-name">Marina Silveira</span>
+              <span class="t-author-handle">@marinasilveira</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="t-card">
+          <div class="t-card-top">
+            <p class="t-quote-text">"Estudar para auditor é solitário e exaustivo. O algoritmo ajustou meu cronograma automaticamente quando eu estava fadigado. Isso me salvou do burnout."</p>
+          </div>
+          <div class="t-card-bottom">
+            <div class="t-avatar" style="background: #555;"></div>
+            <div class="t-author-info">
+              <span class="t-author-name">Carlos Mendes</span>
+              <span class="t-author-handle">@carlosmendes</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="t-card">
+          <div class="t-card-top">
+            <p class="t-quote-text">"Sabe quando você encontra uma IA que não te dá apenas respostas, mas desbloqueia uma nova forma de pensar e organizar os estudos? É isso."</p>
+          </div>
+          <div class="t-card-bottom">
+            <div class="t-avatar" style="background: #333;"></div>
+            <div class="t-author-info">
+              <span class="t-author-name">Lucas Furtado</span>
+              <span class="t-author-handle">@lucas_furtado</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="t-card">
+          <div class="t-card-top">
+            <p class="t-quote-text">"Abrindo caminhos para entender na prática como criar e estudar usando IA. Desmitifica os processos, abre o jogo, sem enrolação."</p>
+          </div>
+          <div class="t-card-bottom">
+            <div class="t-avatar" style="background: #777;"></div>
+            <div class="t-author-info">
+              <span class="t-author-name">Fernanda Lima</span>
+              <span class="t-author-handle">@fer.lima</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="t-controls reveal delay-2">
+      <button class="t-pause-btn" id="carouselPauseBtn">
+        <svg fill="currentColor" height="10" viewBox="0 0 8 10" width="8">
+          <rect height="10" rx="0.5" width="2.5" x="0" y="0"></rect>
+          <rect height="10" rx="0.5" width="2.5" x="5.5" y="0"></rect>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- Rodapé (Footer GKL) -->
+  <footer class="footer">
+    <!-- Faixa Animada (Marquee) -->
+    <div class="f-marquee-wrapper">
+      <div class="f-marquee">
+        <span>GKL AUTOMAÇÕES <span class="star">✦</span></span>
+        <span>STUDYIA <span class="star">✦</span></span>
+        <span>ALTA PERFORMANCE <span class="star">✦</span></span>
+        <span>INTELIGÊNCIA ARTIFICIAL <span class="star">✦</span></span>
+        <span>GKL AUTOMAÇÕES <span class="star">✦</span></span>
+        <span>STUDYIA <span class="star">✦</span></span>
+        <span>ALTA PERFORMANCE <span class="star">✦</span></span>
+        <span>INTELIGÊNCIA ARTIFICIAL <span class="star">✦</span></span>
+      </div>
+      <div class="f-marquee">
+        <span>GKL AUTOMAÇÕES <span class="star">✦</span></span>
+        <span>STUDYIA <span class="star">✦</span></span>
+        <span>ALTA PERFORMANCE <span class="star">✦</span></span>
+        <span>INTELIGÊNCIA ARTIFICIAL <span class="star">✦</span></span>
+        <span>GKL AUTOMAÇÕES <span class="star">✦</span></span>
+        <span>STUDYIA <span class="star">✦</span></span>
+        <span>ALTA PERFORMANCE <span class="star">✦</span></span>
+        <span>INTELIGÊNCIA ARTIFICIAL <span class="star">✦</span></span>
+      </div>
+    </div>
+    
+    <div class="f-content">
+      <div class="f-logo">GKL <span>|</span> STUDYIA</div>
+      <p class="f-copyright">&copy; 2026 GKL. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Script para Interatividade e Animações (Scroll Reveal e Mouse Spotlight) -->
+  <script src="script.js"></script>
+
+</body>
+</html>
+
+``
+
+## 2. style.css
+``css
     /* Reset & Base */
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -830,9 +1399,9 @@
     /* Pricing Grid */
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 40px;
-      max-width: 900px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      max-width: 1200px;
       margin: 0 auto;
       align-items: center;
     }
@@ -876,7 +1445,7 @@
       align-items:baseline;
       gap: 8px;
     }
-    .pc-price-period {
+    .pc-price span {
       font-family: 'Inter', sans-serif;
       font-size: 14px;
       font-weight: 400;
@@ -968,52 +1537,6 @@
     @media (max-width: 768px) {
       .pricing { padding: 80px 40px; }
       .pricing-title { font-size: 56px; }
-    }
-
-    /* Billing Toggle */
-    .pricing-toggle-wrapper {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-top: 40px;
-    }
-    .pt-label {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      color: #888;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-    .pt-label.active { color: #fff; }
-    .pt-discount {
-      color: #CBA052;
-      font-size: 11px;
-      margin-left: 4px;
-      font-weight: 600;
-    }
-    .pt-switch {
-      width: 50px;
-      height: 26px;
-      background: #1A1A1A;
-      border-radius: 100px;
-      position: relative;
-      cursor: pointer;
-      border: 1px solid #333;
-      transition: border-color 0.3s ease;
-    }
-    .pt-switch:hover { border-color: #CBA052; }
-    .pt-slider {
-      width: 18px;
-      height: 18px;
-      background: #CBA052;
-      border-radius: 50%;
-      position: absolute;
-      top: 3px;
-      left: 4px;
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .pt-switch.annual-active .pt-slider {
-      transform: translateX(22px);
     }
 
     /* --- Inversão de Cores (Light Mode Hack) --- */
@@ -1250,3 +1773,75 @@
     }
 
 
+
+``
+
+## 3. script.js
+``javascript
+    // Logica do Carrossel Contínuo (Marquee Animado)
+    const carousel = document.getElementById('testimonialCarousel');
+    const pauseBtn = document.getElementById('carouselPauseBtn');
+    let isPaused = false;
+    
+    if(carousel) {
+      // Pausar/Despausar ao clicar no botão
+      pauseBtn.addEventListener('click', () => {
+        isPaused = !isPaused;
+        if (isPaused) {
+          pauseBtn.innerHTML = `<svg fill="currentColor" height="12" viewBox="0 0 12 12" width="12"><path d="M3 2l8 4-8 4V2z"/></svg>`; // Play icon
+          carousel.style.animationPlayState = 'paused';
+        } else {
+          pauseBtn.innerHTML = `<svg fill="currentColor" height="10" viewBox="0 0 8 10" width="8"><rect height="10" rx="0.5" width="2.5" x="0" y="0"></rect><rect height="10" rx="0.5" width="2.5" x="5.5" y="0"></rect></svg>`; // Pause icon
+          carousel.style.animationPlayState = 'running';
+        }
+      });
+    }
+    const nav = document.querySelector('.nav');
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.scrollY || document.documentElement.scrollTop;
+      
+      if (currentScroll <= 10) {
+        nav.classList.remove('nav-scrolled');
+        nav.classList.remove('nav-hidden');
+        lastScrollY = currentScroll;
+        return;
+      }
+
+      if (currentScroll > 50) {
+        nav.classList.add('nav-scrolled');
+      }
+
+      if (currentScroll > lastScrollY && currentScroll > 150) {
+        nav.classList.add('nav-hidden');
+      } else if (currentScroll < lastScrollY) {
+        nav.classList.remove('nav-hidden');
+      }
+      
+      lastScrollY = currentScroll;
+    }, { passive: true });
+
+    // Intersection Observer para animar os elementos quando aparecem na tela (Reveal Flow)
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    // Efeito de Spotlight nos cartões seguindo o mouse (inspirado no Drone)
+    document.querySelectorAll('.feature-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+
+``

@@ -200,7 +200,7 @@
         <div class="flip-card-inner">
           <div class="flip-card-front">
             <svg class="fc-front-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
             </svg>
             <h3 class="fc-front-title">MODO PROVA</h3>
             <span class="fc-front-tag">Curto Prazo</span>
@@ -212,7 +212,7 @@
           <div class="flip-card-back">
             <div class="fc-back-header">
               <span class="fc-back-title">Bastidores do Algoritmo</span>
-              <svg class="fc-front-icon" style="margin:0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              <svg class="fc-front-icon" style="margin:0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
             </div>
             <ul class="fc-back-list">
               <li>
@@ -255,7 +255,11 @@
           <div class="flip-card-back">
             <div class="fc-back-header">
               <span class="fc-back-title">Bastidores do Algoritmo</span>
-              <svg class="fc-front-icon" style="margin:0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/></svg>
+              <svg class="fc-front-icon" style="margin:0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                <line x1="12" y1="19" x2="12" y2="23"/>
+              </svg>
             </div>
             <ul class="fc-back-list">
               <li>
@@ -297,7 +301,10 @@
           <div class="flip-card-back">
             <div class="fc-back-header">
               <span class="fc-back-title">Bastidores do Algoritmo</span>
-              <svg class="fc-front-icon" style="margin:0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/></svg>
+              <svg class="fc-front-icon" style="margin:0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+              </svg>
             </div>
             <ul class="fc-back-list">
               <li>
@@ -336,49 +343,46 @@
       <p class="pricing-desc reveal delay-2">
         Escolha o arsenal ideal para o seu momento de estudo. Sem taxas escondidas, sem surpresas. Cancele quando for aprovado.
       </p>
+
+      <!-- Billing Toggle -->
+      <div class="pricing-toggle-wrapper reveal delay-3">
+        <span class="pt-label monthly active">Mensal</span>
+        <div class="pt-switch" id="billingToggle">
+          <div class="pt-slider"></div>
+        </div>
+        <span class="pt-label annual">Anual <span class="pt-discount">(-25%)</span></span>
+      </div>
     </div>
 
     <div class="pricing-grid">
       
-      <!-- Passe Tático -->
+      <!-- Plano Básico -->
       <div class="pricing-card reveal delay-1">
-        <h3 class="pc-name">PASSE TÁTICO</h3>
-        <p class="pc-desc">Sobrevivência universitária e escolar. O essencial para manter as notas altas.</p>
-        <div class="pc-price">R$ 29<span>/mês</span></div>
+        <h3 class="pc-name">PLANO BÁSICO</h3>
+        <p class="pc-desc">O ecossistema completo impulsionado pela IA de alta velocidade.</p>
+        <div class="pc-price">R$ <span class="pc-price-value" data-monthly="19,90" data-annual="179,90">19,90</span><span class="pc-price-period">/mês</span></div>
         <ul class="pc-features">
-          <li><svg class="pc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Modo Prova Ilimitado</li>
-          <li><svg class="pc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 50 Resumos por mês</li>
-          <li><svg class="pc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Histórico de erros de 30 dias</li>
-        </ul>
-        <a href="#" class="pc-btn">Assinar Tático</a>
-      </div>
-
-      <!-- Passe Estratégico (Premium) -->
-      <div class="pricing-card premium reveal delay-2">
-        <div class="pc-badge">Recomendado</div>
-        <h3 class="pc-name">PASSE ESTRATÉGICO</h3>
-        <p class="pc-desc">Alta performance para Concursos e Vestibulares. Liberdade total nos 3 Modos de Foco.</p>
-        <div class="pc-price">R$ 59<span>/mês</span></div>
-        <ul class="pc-features">
-          <li><svg class="pc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Todos os 3 Modos de Foco</li>
-          <li><svg class="pc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Resumos & Simulados Infinitos</li>
-          <li><svg class="pc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Análise de Áudio (Oratória)</li>
+          <li><svg class="pc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Acesso 100% liberado aos 3 Modos de Foco</li>
+          <li><svg class="pc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Motor de IA: Gemini Flash-Lite (Super rápido)</li>
+          <li><svg class="pc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Resumos e Simulados Ilimitados</li>
           <li><svg class="pc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Revisão Espaçada Ativa</li>
         </ul>
-        <a href="#" class="pc-btn">Assinar Estratégico</a>
+        <a href="#" class="pc-btn">Assinar Básico</a>
       </div>
 
-      <!-- Passe Vitalício -->
-      <div class="pricing-card reveal delay-3">
-        <h3 class="pc-name">PASSE VITALÍCIO</h3>
-        <p class="pc-desc">Pagamento único. Acesso irrestrito ao sistema de inteligência artificial para sempre.</p>
-        <div class="pc-price">R$ 499<span>/único</span></div>
+      <!-- Plano Avançado (Premium) -->
+      <div class="pricing-card premium reveal delay-2">
+        <div class="pc-badge">Recomendado</div>
+        <h3 class="pc-name">PLANO AVANÇADO</h3>
+        <p class="pc-desc">"Brain Power" máximo. Acesso ao raciocínio profundo para quem não pode errar.</p>
+        <div class="pc-price">R$ <span class="pc-price-value" data-monthly="49,90" data-annual="449,90">49,90</span><span class="pc-price-period">/mês</span></div>
         <ul class="pc-features">
-          <li><svg class="pc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Acesso Estratégico Perpétuo</li>
-          <li><svg class="pc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Mentoria Humana Bimestral</li>
-          <li><svg class="pc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Acesso antecipado a Betas</li>
+          <li><svg class="pc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Tudo do plano Básico</li>
+          <li><svg class="pc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Motor de IA Híbrido: Flash + Gemini Pro</li>
+          <li><svg class="pc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Auditoria Noturna de Auto-Reflexão</li>
+          <li><svg class="pc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Botão "Modo Desespero" liberado</li>
         </ul>
-        <a href="#" class="pc-btn">Obter Vitalício</a>
+        <a href="#" class="pc-btn">Assinar Avançado</a>
       </div>
 
     </div>
