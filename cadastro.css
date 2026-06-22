@@ -1,0 +1,127 @@
+/* cadastro.css - Estilos específicos para a página de Cadastro do StudyIA */
+
+/* Ajuste no lado direito para permitir rolagem no form caso a tela seja pequena */
+.cadastro-side-override {
+  padding: 60px 40px;
+  overflow-y: auto;
+  align-items: flex-start; /* Evita que o topo do card suma em telas menores */
+}
+
+/* O cartão de cadastro tem mais campos, precisa ser levemente mais largo e ajustado */
+.cadastro-card {
+  max-width: 580px;
+  padding: 50px 50px;
+  margin: auto; /* Centraliza verticalmente e horizontalmente se houver espaço */
+}
+
+.cadastro-subtitle {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 17px;
+  color: #CBA052;
+  margin-top: 5px;
+  letter-spacing: 0.5px;
+}
+
+/* Select customizado (Foco de Estudo) */
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper::after {
+  content: "▼";
+  font-size: 10px;
+  color: #888;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.form-group select {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 18px 20px;
+  width: 100%;
+  outline: none;
+  transition: all 0.3s ease;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.form-group select:focus {
+  background: rgba(203, 160, 82, 0.05);
+  border-color: rgba(203, 160, 82, 0.5);
+  box-shadow: 0 0 15px rgba(203, 160, 82, 0.1);
+}
+
+.form-group select option {
+  background-color: #0A0A0A;
+  color: #fff;
+  padding: 15px;
+}
+
+/* Texto de ajuda criativo e detalhista embaixo do select */
+.input-helper-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #777;
+  font-weight: 300;
+  margin-top: 6px;
+  line-height: 1.5;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.input-helper-text svg {
+  min-width: 12px;
+  margin-top: 2px;
+  color: #CBA052;
+}
+
+/* Password Input e Ícone de Mostrar/Ocultar */
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 50px; /* espaço para o olho não ficar por cima do texto */
+}
+
+.pwd-toggle-btn {
+  position: absolute;
+  right: 15px;
+  background: transparent;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  transition: color 0.3s ease;
+}
+
+.pwd-toggle-btn:hover {
+  color: #CBA052;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Responsividade extra para o formulário longo em telas pequenas */
+@media (max-width: 768px) {
+  .cadastro-card {
+    padding: 30px 20px;
+  }
+}
