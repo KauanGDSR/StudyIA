@@ -1,0 +1,232 @@
+/* login.css - Estilos específicos para a página de Login do StudyIA */
+
+/* Para garantir que o split screen cubra a tela e não role se não for necessário */
+.login-body {
+  overflow: hidden; 
+}
+
+/* Split Screen Layout Principal */
+.login-split {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Lado Esquerdo (Branding Clássico) */
+.login-branding {
+  flex: 1;
+  background-color: #030303;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-right: 1px solid #1A1A1A;
+}
+
+/* Padrão Geométrico / Inteligência Artificial e Biblioteca Escura */
+.branding-geo-pattern {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(203, 160, 82, 0.08), transparent 30%),
+    radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.02), transparent 40%),
+    linear-gradient(45deg, transparent 48%, rgba(203, 160, 82, 0.04) 50%, transparent 52%);
+  background-size: 100% 100%, 100% 100%, 60px 60px;
+  opacity: 0.8;
+  z-index: 1;
+}
+
+.branding-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  padding: 40px;
+}
+
+.login-logo {
+  font-size: 40px;
+  text-decoration: none;
+}
+
+.branding-quote {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 72px;
+  line-height: 0.95;
+  letter-spacing: 2px;
+  color: #fff;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.branding-quote .serif-italic {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 44px;
+  color: #CBA052;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* Lado Direito (Formulário) */
+.login-form-side {
+  flex: 1;
+  background-color: #050505;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+/* O cartão do formulário reutiliza a estética .feature-card */
+.login-card {
+  width: 100%;
+  max-width: 480px;
+  min-height: auto; /* Remove a altura mínima do .feature-card original */
+  padding: 60px 50px;
+  background: #0A0A0A;
+}
+
+.login-header {
+  margin-bottom: 40px;
+}
+
+.login-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 48px;
+  color: #fff;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.login-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: #888;
+}
+
+/* Estrutura do Formulário */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  color: #CBA052;
+  letter-spacing: 1px;
+}
+
+/* Inputs Premium (Foco) */
+.form-group input {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 18px 20px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.form-group input::placeholder {
+  color: #555;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+}
+
+.form-group input:focus {
+  background: rgba(203, 160, 82, 0.05);
+  border-color: rgba(203, 160, 82, 0.5);
+  box-shadow: 0 0 15px rgba(203, 160, 82, 0.1);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -10px;
+}
+
+.forgot-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #888;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.forgot-link:hover {
+  color: #fff;
+}
+
+/* Botão de Entrar */
+.login-btn {
+  width: 100%;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+/* Footer do Form */
+.login-footer {
+  margin-top: 40px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 30px;
+}
+
+.login-footer p {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #888;
+}
+
+.login-footer a {
+  color: #CBA052;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.login-footer a:hover {
+  color: #fff;
+}
+
+/* Responsividade (Quebra para telas menores) */
+@media (max-width: 992px) {
+  .login-split {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+  .login-body {
+    overflow: auto;
+  }
+  .login-branding {
+    padding: 80px 40px;
+    border-right: none;
+    border-bottom: 1px solid #1A1A1A;
+  }
+  .branding-quote {
+    font-size: 56px;
+  }
+  .branding-quote .serif-italic {
+    font-size: 32px;
+  }
+}
+@media (max-width: 768px) {
+  .login-card {
+    padding: 40px 30px;
+  }
+}

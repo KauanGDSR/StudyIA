@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Login — StudyIA</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <!-- Fontes Oficiais do Projeto -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital@1&display=swap" rel="stylesheet"/>
+  
+  <!-- CSS Base e CSS Específico de Login -->
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="login.css"/>
+</head>
+<body class="login-body">
+
+  <div class="login-split">
+    
+    <!-- Lado Esquerdo (Branding) -->
+    <div class="login-branding">
+      <!-- Elemento geométrico de IA abstrato -->
+      <div class="branding-geo-pattern"></div>
+      
+      <div class="branding-content reveal">
+        <a href="index.html" class="nav-logo login-logo">Study<span>IA</span></a>
+        
+        <h1 class="branding-quote reveal delay-1">
+          A tradição do foco.<br>
+          <span class="serif-italic">O poder da inteligência.</span>
+        </h1>
+      </div>
+    </div>
+
+    <!-- Lado Direito (Formulário) -->
+    <div class="login-form-side">
+      <!-- Reutilizando a estética .feature-card para obter o Spotlight automático -->
+      <div class="feature-card login-card reveal delay-2">
+        <div class="login-header">
+          <h2 class="login-title">ACESSE O SISTEMA</h2>
+          <p class="login-subtitle">Bem-vindo de volta à alta performance.</p>
+        </div>
+
+        <form class="login-form" action="#" method="POST">
+          <div class="form-group reveal delay-3">
+            <label for="email">E-MAIL INSTITUCIONAL OU PESSOAL</label>
+            <input type="email" id="email" placeholder="digite seu e-mail" required />
+          </div>
+
+          <div class="form-group reveal delay-4">
+            <label for="password">SENHA DE ACESSO</label>
+            <input type="password" id="password" placeholder="digite sua senha" required />
+          </div>
+
+          <div class="form-actions reveal delay-4">
+            <a href="#" class="forgot-link">Esqueci minha senha</a>
+          </div>
+
+          <button type="submit" class="btn-primary login-btn reveal delay-5">
+            <span>ENTRAR</span>
+            <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </form>
+
+        <div class="login-footer reveal delay-5">
+          <p>Ainda não tem o Passe Tático? <a href="index.html">Assine agora.</a></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scripts Principais (Trazendo o Spotlight e Reveal do script.js raiz) -->
+  <script src="script.js"></script>
+</body>
+</html>
