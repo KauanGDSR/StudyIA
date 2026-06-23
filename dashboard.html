@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Painel de Estudos — StudyIA</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <!-- Fontes Oficiais -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital@1&display=swap" rel="stylesheet"/>
+  
+  <!-- Estilos Globais e do Dashboard -->
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="dashboard.css"/>
+</head>
+<body class="dashboard-body">
+
+  <!-- BARRA LATERAL (Sidebar Minimalista) -->
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <a href="index.html" class="sidebar-logo">S<span>IA</span> <span class="logo-text">StudyIA Premium</span></a>
+      <div class="sidebar-icon tab-btn active" data-target="tab-estudos" title="Área de Estudos / Chat IA">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span class="menu-text">Área de Estudos</span>
+      </div>
+      <div class="sidebar-icon tab-btn" data-target="tab-historico" title="Histórico de Estudos">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <span class="menu-text">Histórico</span>
+      </div>
+      <div class="sidebar-icon tab-btn" data-target="tab-agenda" title="Minha Agenda">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <span class="menu-text">Minha Agenda</span>
+      </div>
+      <div class="sidebar-icon tab-btn" data-target="tab-grupos" title="Estudo em Grupo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span class="menu-text">Estudo em Grupo</span>
+      </div>
+      <div class="sidebar-icon has-badge tab-btn" data-target="tab-perfil" title="Relatório do Aluno">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        <span class="badge">3d</span>
+        <span class="menu-text">Relatório do Aluno</span>
+      </div>
+      <div class="sidebar-icon tab-btn" data-target="tab-config" title="Configurações">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <span class="menu-text">Configurações</span>
+      </div>
+    </div>
+    <div class="sidebar-bottom">
+      <div class="sidebar-icon" id="themeToggle" title="Trocar Tema">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <span class="menu-text">Trocar Tema</span>
+      </div>
+      <a href="login.html" class="sidebar-icon logout-icon" title="Sair do Sistema">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        <span class="menu-text">Sair do Sistema</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ÁREA DE CONTEÚDO PRINCIPAL (TABS) -->
+  <main class="main-content">
+    
+    <!-- TAB 1: ESTUDOS / CHAT IA (Ativo por padrão) -->
+    <!-- Adicionamos a classe has-document via JS quando um arquivo for anexado -->
+    <section id="tab-estudos" class="tab-content split-container active">
+      
+      <!-- LADO ESQUERDO: Painel de Estudos / PDF Viewer (Oculto até anexar) -->
+      <section class="left-panel">
+        <header class="pdf-toolbar">
+          <div class="pdf-file-info">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <span class="file-name">Mecânica_Quantica_Cap4.pdf</span>
+          </div>
+          <div class="pdf-pagination">
+            <button class="icon-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></button>
+            <span>1 / 45</span>
+            <button class="icon-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>
+          </div>
+          <div class="pdf-actions">
+            <button class="neon-highlighter-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              Realçar Texto
+            </button>
+            <button class="icon-btn" id="closeDocBtn" title="Fechar Documento" style="margin-left: 10px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
+        </header>
+
+        <div class="pdf-viewer-area">
+          <div class="pdf-page-mockup">
+            <h2 class="pdf-title">O Princípio da Incerteza de Heisenberg</h2>
+            
+            <div class="pdf-lines">
+              <div class="line line-full blurred"></div>
+              <div class="line line-90 blurred"></div>
+              <div class="line line-80 blurred"></div>
+              <div class="line line-full blurred"></div>
+              <div class="line line-60 blurred"></div>
+            </div>
+            
+            <p class="pdf-readable-text">
+              Isto implica que o ato de medir a posição de uma partícula altera seu momento de maneira imprevisível. Portanto, 
+              <span class="neon-highlight">não podemos atribuir a uma partícula trajetórias exatas através do espaço em nenhum modelo matemático consistente.</span>
+              A dualidade onda-partícula se torna evidente aqui.
+            </p>
+
+            <div class="pdf-lines">
+              <div class="line line-full blurred"></div>
+              <div class="line line-90 blurred"></div>
+              <div class="line line-full blurred"></div>
+              <div class="line line-70 blurred"></div>
+              <div class="line line-80 blurred"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- LADO DIREITO: Painel do Tutor IA -->
+      <section class="right-panel">
+        <div class="cosmic-aura"></div>
+
+        <header class="chat-header">
+          <div class="ai-identity">
+            <div class="ai-avatar">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#CBA052" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <div class="ai-info-stack">
+              <span class="ai-name">StudyIA Assistant</span>
+              <span class="ai-status">Pronto para iniciar sessão</span>
+            </div>
+          </div>
+          <div class="chat-header-actions">
+            <button class="chat-action-btn" title="Histórico de Conversas">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </button>
+            <button class="chat-action-btn" title="Nova Conversa">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="streak-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+              15 🔥
+            </div>
+          </div>
+        </header>
+
+        <div class="chat-messages">
+          <!-- Welcome Message -->
+          <div class="message-row ai-row">
+            <div class="ai-avatar-small">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#CBA052" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg>
+            </div>
+            <div class="bubble ai-bubble">
+              <p>Olá! Pronto para a alta performance hoje? Você pode me fazer uma pergunta ou <strong>anexar um PDF/Foto</strong> usando o clipe ali embaixo para entrarmos no Modo Split-Screen.</p>
+            </div>
+          </div>
+          
+          <!-- Mockup Messages (visível se tiver contexto) -->
+          <div class="message-row user-row chat-demo-msg" style="display:none;">
+            <div class="bubble user-bubble">
+              O que significa esse trecho que eu marquei de verde ali no PDF? "não podemos atribuir trajetórias exatas"... Por quê?
+            </div>
+          </div>
+          <div class="message-row ai-row chat-demo-msg" style="display:none;">
+            <div class="ai-avatar-small">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#CBA052" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg>
+            </div>
+            <div class="bubble ai-bubble">
+              <p>Excelente pergunta. Para entender isso, precisamos abandonar a visão clássica de Newton.</p>
+              <p>Imagine que você quer descobrir a posição de um elétron. Para "vê-lo", você precisa jogar um fóton (luz) nele. Como o elétron é absurdamente leve, o próprio impacto do fóton joga o elétron para outra direção.</p>
+              <p>Ou seja: <strong>a precisão na medição da posição destrói o conhecimento do seu momento (velocidade).</strong> Essa incerteza é um limite fundamental do universo matemático, estruturado pelo princípio de Heisenberg.</p>
+            </div>
+          </div>
+        </div>
+
+        <footer class="chat-input-area">
+          <div class="chat-controls-bar">
+            <div class="ai-mood-wrapper">
+              <span class="mood-label">Personalidade da IA:</span>
+              <select class="chat-mood-select" title="Personalidade da IA">
+                <option value="amigavel">Amigável & Encorajador</option>
+                <option value="direto" selected>Direto & Analítico</option>
+                <option value="pressao">Modo Desespero (Alta Pressão)</option>
+              </select>
+              <div class="mood-tooltip-trigger">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                <div class="mood-tooltip-content">
+                  A personalidade da IA altera o tom das respostas.<br><br>
+                  <strong style="color:#CBA052;">Amigável:</strong> Explicações positivas e encorajadoras.<br>
+                  <strong style="color:#CBA052;">Direto:</strong> Foco em respostas curtas e objetivas.<br>
+                  <strong style="color:#CBA052;">Modo Desespero:</strong> Alta pressão e foco total em metas.
+                </div>
+              </div>
+            </div>
+
+            <div class="quick-prompts">
+              <button class="prompt-pill">Me explique isso</button>
+              <button class="prompt-pill">Gerar Resumo</button>
+              <button class="prompt-pill">Criar Simulados</button>
+            </div>
+          </div>
+
+          <div class="input-wrapper">
+            <input type="text" placeholder="Pergunte sobre o texto, crie um flashcard..." class="chat-input" />
+            
+            <div class="input-actions">
+              <!-- Botão de Anexar que divide a tela -->
+              <button class="icon-btn" id="attachBtn" title="Anexar Documento / Foto">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+              </button>
+              <button class="icon-btn" title="Áudio"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg></button>
+              <button class="send-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
+            </div>
+          </div>
+        </footer>
+      </section>
+    </section>
+
+    <!-- TAB 2: HISTÓRICO DE ESTUDOS -->
+    <section id="tab-historico" class="tab-content standalone-tab">
+      <div class="historico-container reveal">
+        
+        <div class="historico-header">
+          <div>
+            <h2 class="historico-title">Histórico de Estudos</h2>
+            <p class="historico-desc">Acompanhe sua evolução e retome sessões passadas.</p>
+          </div>
+          <button class="historico-filter-btn">
+            Últimos 30 dias <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </div>
+
+        <div class="historico-stats-grid reveal delay-1">
+          <div class="stat-card">
+            <div class="stat-icon" style="color: #CBA052; background: rgba(203,160,82,0.1);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="stat-info">
+              <span class="stat-value">28h 45m</span>
+              <span class="stat-label">Tempo Total</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="color: #00FF85; background: rgba(0,255,133,0.1);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div class="stat-info">
+              <span class="stat-value">14</span>
+              <span class="stat-label">Tópicos Concluídos</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="color: #8B5CF6; background: rgba(139,92,246,0.1);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+            </div>
+            <div class="stat-info">
+              <span class="stat-value">245</span>
+              <span class="stat-label">Flashcards Gerados</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="historico-timeline reveal delay-2">
+          
+          <!-- Item 1 -->
+          <div class="timeline-item">
+            <div class="timeline-date">
+              <span class="day">Hoje</span>
+              <span class="time">14:30</span>
+            </div>
+            <div class="timeline-node">
+              <div class="node-dot" style="background: #00FF85; box-shadow: 0 0 10px #00FF85;"></div>
+              <div class="node-line"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="card-header-hist">
+                <span class="hist-tag" style="color: #00FF85; border-color: rgba(0,255,133,0.3); background: rgba(0,255,133,0.05);">Modo Prova</span>
+                <button class="btn-retomar">Retomar Sessão</button>
+              </div>
+              <h3 class="hist-title">Mecânica Quântica - Cap 4</h3>
+              <p class="hist-details">15 páginas analisadas. 4 Flashcards gerados. Precisão de 92% nas questões resolvidas com a IA.</p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="timeline-item">
+            <div class="timeline-date">
+              <span class="day">Ontem</span>
+              <span class="time">20:15</span>
+            </div>
+            <div class="timeline-node">
+              <div class="node-dot" style="background: #CBA052; box-shadow: 0 0 10px #CBA052;"></div>
+              <div class="node-line"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="card-header-hist">
+                <span class="hist-tag" style="color: #CBA052; border-color: rgba(203,160,82,0.3); background: rgba(203,160,82,0.05);">Modo Concurso</span>
+                <button class="btn-retomar">Retomar Sessão</button>
+              </div>
+              <h3 class="hist-title">Simulado CESPE - Direito Constitucional</h3>
+              <p class="hist-details">120 questões resolvidas. 85% de acerto global. IA recomendou focar a revisão no Artigo 5º da CF.</p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="timeline-item">
+            <div class="timeline-date">
+              <span class="day">19 Jun</span>
+              <span class="time">10:00</span>
+            </div>
+            <div class="timeline-node">
+              <div class="node-dot" style="background: #8B5CF6; box-shadow: 0 0 10px #8B5CF6;"></div>
+              <div class="node-line" style="background: transparent;"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="card-header-hist">
+                <span class="hist-tag" style="color: #8B5CF6; border-color: rgba(139,92,246,0.3); background: rgba(139,92,246,0.05);">Modo Apresentação</span>
+                <button class="btn-retomar">Retomar Sessão</button>
+              </div>
+              <h3 class="hist-title">TCC - Defesa Oratória</h3>
+              <p class="hist-details">Análise de áudio: 12 minutos. A IA corrigiu 3 vícios de linguagem e sugeriu pausas estratégicas.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB: ESTUDO EM GRUPO -->
+    <section id="tab-grupos" class="tab-content standalone-tab">
+      <div class="grupos-container">
+        <!-- Hero Section -->
+        <div class="grupos-hero reveal">
+          <div class="grupos-avatars-stacked">
+            <div class="avatar-sm avatar-left"><img src="https://ui-avatars.com/api/?name=L&background=CBA052&color=000&rounded=true" alt=""></div>
+            <div class="avatar-lg avatar-center"><img src="https://ui-avatars.com/api/?name=M&background=8B5CF6&color=fff&rounded=true" alt=""></div>
+            <div class="avatar-sm avatar-right"><img src="https://ui-avatars.com/api/?name=B&background=00FF85&color=000&rounded=true" alt=""></div>
+          </div>
+          <h1 class="grupos-hero-title">Crie sua primeira<br>turma</h1>
+          <button class="btn-create-grupo">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Criar turma
+          </button>
+          <a href="#" class="grupos-how-it-works">Como funciona <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></a>
+        </div>
+
+        <!-- Sugestões de Turmas -->
+        <div class="grupos-sugestoes reveal delay-1">
+          <h2 class="sugestoes-title">Turmas sugeridas <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></h2>
+          
+          <div class="grupos-grid">
+            <!-- Card 1 -->
+            <div class="grupo-card">
+              <div class="grupo-icon" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+                📚
+              </div>
+              <h3 class="grupo-name">Medicina Usp</h3>
+              <p class="grupo-members">94 membros</p>
+              
+              <div class="grupo-footer">
+                <div class="grupo-member-avatars">
+                  <img src="https://ui-avatars.com/api/?name=A&background=random" alt="">
+                  <img src="https://ui-avatars.com/api/?name=B&background=random" alt="">
+                  <img src="https://ui-avatars.com/api/?name=C&background=random" alt="">
+                  <div class="avatar-more">+91</div>
+                </div>
+                <button class="btn-entrar-grupo">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+                  Entrar
+                </button>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="grupo-card">
+              <div class="grupo-icon" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+                📊
+              </div>
+              <h3 class="grupo-name">Admin Girls</h3>
+              <p class="grupo-members">68 membros</p>
+              
+              <div class="grupo-footer">
+                <div class="grupo-member-avatars">
+                  <img src="https://ui-avatars.com/api/?name=D&background=random" alt="">
+                  <img src="https://ui-avatars.com/api/?name=E&background=random" alt="">
+                  <img src="https://ui-avatars.com/api/?name=F&background=random" alt="">
+                  <div class="avatar-more">+65</div>
+                </div>
+                <button class="btn-entrar-grupo">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+                  Entrar
+                </button>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="grupo-card">
+              <div class="grupo-icon" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+                🐸
+              </div>
+              <h3 class="grupo-name">(9 ano) Treineiros para...</h3>
+              <p class="grupo-members">49 membros</p>
+              
+              <div class="grupo-footer">
+                <div class="grupo-member-avatars">
+                  <img src="https://ui-avatars.com/api/?name=G&background=random" alt="">
+                  <img src="https://ui-avatars.com/api/?name=H&background=random" alt="">
+                  <img src="https://ui-avatars.com/api/?name=I&background=random" alt="">
+                  <div class="avatar-more">+46</div>
+                </div>
+                <button class="btn-entrar-grupo">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+                  Entrar
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: CONFIGURAÇÕES -->
+    <section id="tab-config" class="tab-content standalone-tab">
+      <div class="tab-container">
+        <h2 class="tab-title">CONFIGURAÇÕES DA CONTA</h2>
+        <p class="tab-desc">Gerencie suas informações pessoais, segurança e assinatura.</p>
+        
+        <div class="config-section">
+          <h3 class="config-title">Informações Pessoais</h3>
+          <div class="config-row">
+            <label>Nome Completo</label>
+            <input type="text" class="config-input" value="Aluno Alfa" />
+          </div>
+          <div class="config-row">
+            <label>E-mail</label>
+            <input type="email" class="config-input" value="aluno@alfa.com" />
+          </div>
+          <div class="config-row">
+            <label>Telefone</label>
+            <input type="text" class="config-input" value="(11) 99999-9999" />
+          </div>
+          <button class="btn-primary" style="padding: 10px 20px; font-size: 14px;"><span>Salvar Alterações</span></button>
+        </div>
+
+        <div class="config-section">
+          <h3 class="config-title">Segurança & Senha</h3>
+          <div class="config-row">
+            <label>Senha Atual</label>
+            <input type="password" class="config-input" placeholder="••••••••" />
+          </div>
+          <div class="config-row">
+            <label>Nova Senha</label>
+            <input type="password" class="config-input" placeholder="••••••••" />
+          </div>
+          <button class="btn-primary" style="padding: 10px 20px; font-size: 14px;"><span>Atualizar Senha</span></button>
+        </div>
+
+        <div class="config-section">
+          <h3 class="config-title">Plano e Assinatura</h3>
+          <p style="color: #888; font-size: 14px; margin-bottom: 20px; line-height: 1.6;">Plano Atual: <strong style="color: #CBA052;">StudyIA Premium (Avançado)</strong><br>O Motor de Inteligência Artificial Híbrido (Flash + Pro) é selecionado automaticamente no backend para entregar a melhor performance para o seu plano.</p>
+          <button class="btn-primary" style="padding: 10px 20px; font-size: 14px;"><span>Gerenciar Assinatura</span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: RELATÓRIO DO ALUNO (Bento Box Grid Avançado) -->
+    <section id="tab-perfil" class="tab-content standalone-tab">
+      <div class="bento-container">
+        
+        <!-- 1. Header Superior -->
+        <header class="bento-header reveal">
+          <div class="bento-greeting">
+            <h2 class="bento-title" style="font-size: 48px;">RELATÓRIO DE DESEMPENHO</h2>
+            <p class="bento-subtitle">Métricas detalhadas da sua jornada de alta performance.</p>
+          </div>
+          <div class="bento-quick-stats">
+            <div class="quick-stat">
+              <span class="qs-value">42</span>
+              <span class="qs-label">Horas</span>
+            </div>
+            <div class="quick-stat">
+              <span class="qs-value">350</span>
+              <span class="qs-label">Flashcards</span>
+            </div>
+            <div class="quick-stat">
+              <span class="qs-value" style="color: #00FF85;">15</span>
+              <span class="qs-label">Dias Ofensiva</span>
+            </div>
+          </div>
+        </header>
+
+        <!-- Filtros do Relatório -->
+        <div class="report-filters reveal">
+          <div class="filter-group-btns">
+            <button class="filter-btn active">Últimos 7 Dias</button>
+            <button class="filter-btn">Este Mês</button>
+            <button class="filter-btn">Este Ano</button>
+            <button class="filter-btn">Todo o Período</button>
+          </div>
+          <div class="filter-group-selects">
+            <select class="filter-select">
+              <option value="all">Todas as Matérias</option>
+              <option value="mat">Matemática</option>
+              <option value="fis">Física</option>
+              <option value="bio">Biologia</option>
+              <option value="red">Redação</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Bento Grid -->
+        <div class="bento-grid">
+          
+          <!-- 2. Coluna 1 (Esquerda) - Perfil -->
+          <div class="bento-card bento-profile reveal delay-1">
+            <div class="profile-avatar-large">
+              <img src="https://ui-avatars.com/api/?name=Aluno+Alfa&background=CBA052&color=000&rounded=true&size=100" alt="Avatar" style="width: 100%; height: 100%; border-radius: 50%; border: 2px solid #CBA052;">
+            </div>
+            <h3 class="profile-name-large">Aluno Alfa</h3>
+            <span class="profile-badge">Passe Estratégico</span>
+            
+            <div class="profile-level-module">
+              <div class="level-header">
+                <span class="level-text">Nível 12</span>
+                <span class="level-title">Mestre do Foco</span>
+              </div>
+              <div class="level-progress-bar">
+                <div class="level-fill" style="width: 75%;"></div>
+              </div>
+              <div class="level-stats">
+                <span>15.420 XP</span>
+                <span>Faltam 4.580 XP</span>
+              </div>
+              
+              <div class="next-goals-header">Próximas Conquistas</div>
+              <ul class="goals-list">
+                <li>
+                  <div class="goal-icon" style="background: rgba(0, 255, 133, 0.1); color: #00FF85; border: 1px solid rgba(0, 255, 133, 0.3);">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  </div>
+                  <div class="goal-info">
+                    <span class="goal-name">Ofensiva de 20 Dias</span>
+                    <span class="goal-xp">+500 XP</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="goal-icon" style="background: rgba(139, 92, 246, 0.1); color: #8B5CF6; border: 1px solid rgba(139, 92, 246, 0.3);">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                  </div>
+                  <div class="goal-info">
+                    <span class="goal-name">Mestre em Física</span>
+                    <span class="goal-xp">+1.200 XP</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 3. Coluna 2 e 3 (Centro) - Gráficos -->
+          <!-- 3. Coluna 2 e 3 (Centro) - Gráficos Ultra Avançados -->
+          <div class="bento-card bento-bar-chart reveal delay-2" style="--border-gradient: linear-gradient(135deg, rgba(203, 160, 82, 0.4), rgba(203, 160, 82, 0)); overflow: hidden;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; position: relative; z-index: 2;">
+              <div>
+                <h4 class="bento-card-title" style="margin-bottom: 5px;">Desempenho Semanal</h4>
+                <div style="font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: #fff; line-height: 1;">42.8<span style="font-size: 16px; color: #666; margin-left: 5px;">hrs</span></div>
+              </div>
+              <div style="text-align: right;">
+                <span style="font-size: 11px; color: #00FF85; background: rgba(0,255,133,0.1); padding: 4px 8px; border-radius: 12px; border: 1px solid rgba(0,255,133,0.3);">↑ 22.4%</span>
+                <div style="font-size: 9px; color: #666; margin-top: 4px; text-transform: uppercase;">vs last week</div>
+              </div>
+            </div>
+            
+            <div class="line-chart-wrapper" style="position: relative; height: 100%; width: 100%; flex: 1; margin-top: 10px;">
+               
+               <!-- Y Axis -->
+               <div style="position: absolute; left: 0; top: 0; bottom: 20px; width: 25px; display: flex; flex-direction: column; justify-content: space-between; font-size: 9px; color: #555; text-align: right; padding-right: 5px; z-index: 1;">
+                 <span>60h</span><span>40h</span><span>20h</span><span>0</span>
+               </div>
+
+               <!-- Grid -->
+               <div style="position: absolute; left: 25px; right: 0; top: 4px; bottom: 24px; display: flex; flex-direction: column; justify-content: space-between; z-index: 0;">
+                 <div style="border-top: 1px dashed rgba(255,255,255,0.05); width: 100%;"></div>
+                 <div style="border-top: 1px dashed rgba(255,255,255,0.05); width: 100%;"></div>
+                 <div style="border-top: 1px dashed rgba(255,255,255,0.05); width: 100%;"></div>
+                 <div style="border-top: 1px dashed rgba(255,255,255,0.05); width: 100%;"></div>
+               </div>
+
+               <!-- SVGs and Scanning Line -->
+               <div style="position: absolute; left: 25px; right: 0; top: 0; bottom: 20px; z-index: 2;">
+                 
+                 <!-- Animated Scanning Beam -->
+                 <div class="scan-beam" style="position: absolute; top: 0; bottom: 0; width: 1px; background: rgba(255,255,255,0.2); box-shadow: 0 0 10px rgba(255,255,255,0.5); z-index: 10; animation: scanLoop 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;"></div>
+
+                 <svg viewBox="0 0 200 80" style="width: 100%; height: 100%; overflow: visible;" preserveAspectRatio="none">
+                   <defs>
+                     <linearGradient id="glowGold" x1="0" y1="0" x2="0" y2="1">
+                       <stop offset="0%" stop-color="#CBA052" stop-opacity="0.2"/>
+                       <stop offset="100%" stop-color="#CBA052" stop-opacity="0"/>
+                     </linearGradient>
+                     <linearGradient id="glowGreen" x1="0" y1="0" x2="0" y2="1">
+                       <stop offset="0%" stop-color="#00FF85" stop-opacity="0.15"/>
+                       <stop offset="100%" stop-color="#00FF85" stop-opacity="0"/>
+                     </linearGradient>
+                   </defs>
+                   
+                   <!-- Horas Brutas (Green) -->
+                   <path d="M0 70 L30 60 L60 40 L90 50 L120 20 L150 30 L180 10 L200 5 L200 80 L0 80 Z" fill="url(#glowGreen)" />
+                   <path d="M0 70 L30 60 L60 40 L90 50 L120 20 L150 30 L180 10 L200 5" fill="none" stroke="#00FF85" stroke-width="2" class="chart-line-anim-2" vector-effect="non-scaling-stroke" />
+
+                   <!-- Horas Líquidas (Gold) -->
+                   <path d="M0 80 L30 65 L60 45 L90 60 L120 35 L150 40 L180 15 L200 20 L200 80 L0 80 Z" fill="url(#glowGold)" />
+                   <path d="M0 80 L30 65 L60 45 L90 60 L120 35 L150 40 L180 15 L200 20" fill="none" stroke="#CBA052" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="chart-line-anim" vector-effect="non-scaling-stroke" />
+                   
+                   <circle cx="120" cy="35" r="4" fill="#111" stroke="#CBA052" stroke-width="2" style="filter: drop-shadow(0 0 5px #CBA052); animation: pulseOuter 2s infinite;" />
+                 </svg>
+
+                 <!-- Floating Tooltip -->
+                 <div class="floating-tooltip" style="position: absolute; top: 10px; left: 100px; background: rgba(10,10,10,0.9); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 6px 10px; z-index: 20; animation: tooltipFloat 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;">
+                   <div style="font-size: 9px; color: #888; margin-bottom: 4px;">Qua, 15:00</div>
+                   <div style="display: flex; gap: 6px; align-items: center; font-size: 10px; color: #fff;">
+                     <div style="width: 6px; height: 6px; border-radius: 50%; background: #CBA052;"></div> Líquidas: 6.5h
+                   </div>
+                   <div style="display: flex; gap: 6px; align-items: center; font-size: 10px; color: #fff; margin-top: 2px;">
+                     <div style="width: 6px; height: 6px; border-radius: 50%; background: #00FF85;"></div> Brutas: 8.2h
+                   </div>
+                 </div>
+
+               </div>
+               
+               <!-- X Axis -->
+               <div style="position: absolute; left: 25px; right: 0; bottom: 0; display: flex; justify-content: space-between; font-size: 9px; color: #555; text-transform: uppercase;">
+                 <span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sab</span><span>Dom</span>
+               </div>
+
+            </div>
+          </div>
+
+          <div class="bento-card bento-donut-chart reveal delay-2" style="--border-gradient: linear-gradient(135deg, rgba(0, 255, 133, 0.4), rgba(0, 255, 133, 0));">
+            <div style="display: flex; justify-content: space-between; width: 100%;">
+              <h4 class="bento-card-title">Score de Aprovação</h4>
+              <span style="display: flex; align-items: center; justify-content: center; width: 16px; height: 16px; border: 1px solid rgba(255,255,255,0.15); border-radius: 50%; font-size: 9px; color: #666; cursor: help;">i</span>
+            </div>
+            
+            <div class="donut-wrapper" style="position: relative; width: 130px; height: 130px; margin: 10px auto 0;">
+              
+              <!-- Ultra complex conic gradient radar background -->
+              <div class="radar-bg" style="position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(from 0deg, #161616 0%, #161616 80%, rgba(0,255,133,0.5) 100%); animation: radarSpin 4s linear infinite; -webkit-mask-image: radial-gradient(transparent 55%, #000 56%); mask-image: radial-gradient(transparent 55%, #000 56%);"></div>
+              
+              <svg width="130" height="130" viewBox="0 0 130 130" style="position: absolute; inset: 0; z-index: 10; filter: drop-shadow(0 0 8px rgba(0,255,133,0.4));">
+                <circle cx="65" cy="65" r="55" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="6" />
+                <circle cx="65" cy="65" r="55" fill="none" stroke="url(#donutGradient)" stroke-width="6" 
+                        stroke-dasharray="345" stroke-dashoffset="69" stroke-linecap="round" 
+                        transform="rotate(-90 65 65)" class="donut-anim-ultra" />
+                <defs>
+                  <linearGradient id="donutGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#00FF85" />
+                    <stop offset="100%" stop-color="#00B35D" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              
+              <!-- Center Text -->
+              <div class="donut-text-container" style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 20; background: radial-gradient(circle, #161616 40%, transparent 70%); border-radius: 50%;">
+                <div style="font-size: 8px; color: #666; text-transform: uppercase; letter-spacing: 1px;">Chances</div>
+                <div class="donut-text" style="position: static; font-size: 38px; text-shadow: 0 0 20px rgba(0,255,133,0.8); line-height: 1;">86<span style="font-size: 14px; color: #00FF85;">%</span></div>
+              </div>
+            </div>
+            
+            <div style="display: flex; justify-content: center; gap: 15px; margin-top: auto; font-size: 10px; color: #555;">
+              <div style="display: flex; align-items: center; gap: 4px;"><div style="width: 6px; height: 6px; background: #00FF85; border-radius: 50%;"></div> Alta</div>
+              <div style="display: flex; align-items: center; gap: 4px;"><div style="width: 6px; height: 6px; background: #CBA052; border-radius: 50%;"></div> Média</div>
+            </div>
+          </div>
+
+          <!-- Centro Linha 2: CALENDÁRIO (Gantt Horizontal) -->
+          <div class="bento-card bento-calendar reveal delay-3">
+            <h4 class="bento-card-title">Cronograma de Foco</h4>
+            <div class="gantt-wrapper">
+              <div class="gantt-header">
+                <span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sab</span>
+              </div>
+              <div class="gantt-body">
+                <div class="gantt-row">
+                  <div class="gantt-pill" style="grid-column: 1 / 3; background: rgba(0,255,133,0.15); color: #00FF85; border: 1px solid rgba(0,255,133,0.3);">Simulado CESPE</div>
+                  <div class="gantt-pill" style="grid-column: 5 / 7; background: rgba(138,43,226,0.15); color: #B388FF; border: 1px solid rgba(138,43,226,0.3);">Estatística</div>
+                </div>
+                <div class="gantt-row">
+                  <div class="gantt-pill" style="grid-column: 2 / 5; background: rgba(203,160,82,0.15); color: #CBA052; border: 1px solid rgba(203,160,82,0.3);">Revisão Geral do Edital</div>
+                </div>
+                <div class="gantt-row">
+                  <div class="gantt-pill" style="grid-column: 4 / 5; background: #1A1A1A; color: #fff; border: 1px solid #333;">Redação</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Coluna Direita -->
+          <div class="bento-card bento-edital reveal delay-4" style="--border-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));">
+            <h4 class="bento-card-title" style="margin-bottom: 25px;">Status do Edital</h4>
+            <div class="progress-list">
+              <div class="progress-item">
+                <div class="prog-header" style="color: #fff;"><span>Exatas</span><span style="color: #00FF85; filter: drop-shadow(0 0 4px #00FF85);">30%</span></div>
+                <div class="prog-track" style="height: 8px; background: rgba(255,255,255,0.05); border-radius: 4px; box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);">
+                  <div class="prog-fill" style="width: 30%; background: linear-gradient(90deg, #00FF85, #00B35D); box-shadow: 0 0 10px rgba(0,255,133,0.4); border-radius: 4px;"></div>
+                </div>
+              </div>
+              <div class="progress-item" style="margin-top: 20px;">
+                <div class="prog-header" style="color: #fff;"><span>Humanas</span><span style="color: #CBA052; filter: drop-shadow(0 0 4px #CBA052);">80%</span></div>
+                <div class="prog-track" style="height: 8px; background: rgba(255,255,255,0.05); border-radius: 4px; box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);">
+                  <div class="prog-fill" style="width: 80%; background: linear-gradient(90deg, #CBA052, #A8813C); box-shadow: 0 0 10px rgba(203,160,82,0.4); border-radius: 4px;"></div>
+                </div>
+              </div>
+              <div class="progress-item" style="margin-top: 20px;">
+                <div class="prog-header" style="color: #fff;"><span>Linguagens</span><span style="color: #B388FF; filter: drop-shadow(0 0 4px #B388FF);">55%</span></div>
+                <div class="prog-track" style="height: 8px; background: rgba(255,255,255,0.05); border-radius: 4px; box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);">
+                  <div class="prog-fill" style="width: 55%; background: linear-gradient(90deg, #B388FF, #8A2BE2); box-shadow: 0 0 10px rgba(179,136,255,0.4); border-radius: 4px;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bento-card bento-goals reveal delay-5" style="background-color: #0F0F0F;">
+            <h4 class="bento-card-title">Metas da Semana</h4>
+            <ul class="checklist">
+              <li class="checked">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#CBA052" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Finalizar Cap. 4 de Mecânica</span>
+              </li>
+              <li class="checked">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#CBA052" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Fazer 50 questões FGV</span>
+              </li>
+              <li>
+                <div class="uncheck-circle"></div>
+                <span>Ler resumo de Filosofia</span>
+              </li>
+              <li>
+                <div class="uncheck-circle"></div>
+                <span>Gravar áudio oratória</span>
+              </li>
+            </ul>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: MINHA AGENDA -->
+    <section id="tab-agenda" class="tab-content">
+      <div class="agenda-container">
+        <div class="agenda-top-header reveal">
+          <h2 class="agenda-title">Minha agenda</h2>
+          <button class="btn-add-event">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Adicionar evento
+          </button>
+        </div>
+
+        <div class="agenda-filters reveal delay-1">
+          <button class="filter-btn active">Tudo</button>
+          <button class="filter-btn">Meus eventos</button>
+          <button class="filter-btn">Turma</button>
+        </div>
+
+        <div class="monthly-calendar-container reveal delay-2">
+          <div class="monthly-header">
+            <button class="month-nav">&lt;</button>
+            <h3>junho 2026</h3>
+            <button class="month-nav">&gt;</button>
+          </div>
+
+          <div class="monthly-grid">
+            <!-- Weekdays -->
+            <div class="weekday">dom</div><div class="weekday">seg</div><div class="weekday">ter</div>
+            <div class="weekday">qua</div><div class="weekday">qui</div><div class="weekday">sex</div><div class="weekday">sab</div>
+            
+            <!-- Days -->
+            <div class="day mute">31</div><div class="day">1</div><div class="day">2</div><div class="day">3</div><div class="day">4</div><div class="day">5</div><div class="day">6</div>
+            <div class="day">7</div><div class="day">8</div><div class="day">9</div><div class="day">10</div><div class="day">11</div><div class="day">12</div><div class="day">13</div>
+            <div class="day">14</div><div class="day">15</div><div class="day">16</div><div class="day">17</div><div class="day">18</div><div class="day">19</div><div class="day">20</div>
+            <div class="day">21</div><div class="day today">22</div><div class="day event">23</div><div class="day">24</div><div class="day">25</div><div class="day">26</div><div class="day">27</div>
+            <div class="day">28</div><div class="day">29</div><div class="day">30</div><div class="day mute">1</div><div class="day mute">2</div><div class="day mute">3</div><div class="day mute">4</div>
+          </div>
+        </div>
+
+        <div class="upcoming-events-section reveal delay-3">
+          <h3 class="upcoming-title">Próximos</h3>
+          
+          <div class="upcoming-card">
+            <div class="upcoming-date-box">
+              <span class="month">JUN</span>
+              <span class="day-num">23</span>
+            </div>
+            <div class="upcoming-info">
+              <span class="upcoming-tag">Matemática</span>
+              <h4 class="upcoming-event-title">Propriedades e Composição de Relações Binárias</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Lógica das Abas (Tabs)
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active de todos
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(c => c.classList.remove('active'));
+        
+        // Adiciona active no clicado
+        btn.classList.add('active');
+        const targetId = btn.getAttribute('data-target');
+        const targetTab = document.getElementById(targetId);
+        targetTab.classList.add('active');
+        
+        // Força a animação em cascata (reveal) dos elementos da aba recém-aberta
+        const reveals = targetTab.querySelectorAll('.reveal');
+        reveals.forEach((el) => {
+          // Pequeno timeout para dar tempo do display: block ser aplicado pelo navegador
+          setTimeout(() => {
+            el.classList.add('active');
+          }, 50);
+        });
+      });
+    });
+
+    // Lógica do Split-Screen (Anexar Documento)
+    const attachBtn = document.getElementById('attachBtn');
+    const closeDocBtn = document.getElementById('closeDocBtn');
+    const tabEstudos = document.getElementById('tab-estudos');
+    const demoMsgs = document.querySelectorAll('.chat-demo-msg');
+
+    if (attachBtn && tabEstudos) {
+      attachBtn.addEventListener('click', () => {
+        tabEstudos.classList.add('has-document');
+        // Mostra as mensagens simulando que a análise do documento começou
+        demoMsgs.forEach(msg => msg.style.display = 'flex');
+      });
+    }
+
+    if (closeDocBtn && tabEstudos) {
+      closeDocBtn.addEventListener('click', () => {
+        tabEstudos.classList.remove('has-document');
+        // Oculta as mensagens
+        demoMsgs.forEach(msg => msg.style.display = 'none');
+      });
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
